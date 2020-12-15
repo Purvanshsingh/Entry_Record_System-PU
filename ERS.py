@@ -6,7 +6,6 @@ from excel_export import *
 from tkinter import messagebox
 from tkinter import *
 import datetime
-from GoogleDriveApi import Get_Yesterday_File,Send_Data_To_Drive
 from httplib2 import ServerNotFoundError
 from openpyxl import load_workbook
 def submit_entry(entry,e):
@@ -119,10 +118,11 @@ Serial_number=0
 window=Tk()
 window.geometry('1280x1024')
 window.title("ENTRY_RECORD_SYSTEM")
-background_img1=PhotoImage( file='main2.png')
+background_img1=PhotoImage( file='main.png')
 label=Label(window, image=background_img1)
+
 #Welcome Label
-Welcome_label=Label(label,text="Welcome To PIET Library",bg='brown',fg='white', font=("Times 50 bold italic"),bd=5,relief=RAISED)
+Welcome_label=Label(label,text="Welcome To PU Library",bg='brown',fg='white', font=("Times 50 bold italic"),bd=5,relief=RAISED)
 Welcome_label.pack(pady=10)
 #Clock Frame
 clock=Frame(label)
@@ -157,7 +157,7 @@ submit.grid(row=3,pady=20,ipadx=10,columnspan=3)
 Entry.grid(row=2,padx=10,pady=10,columnspan=3,ipadx=5)
 enter_here.grid(row=0,padx=5,pady=35,ipadx=20,ipady=20,columnspan=3)
 entry_label.pack(expand=YES,fill=BOTH)
-entry_frame.pack(expand=YES,fill=Y,pady=20)
+entry_frame.pack(expand=YES,fill=Y,pady=10)
 #Admin Login Button
 Admin_login=Button(label,text="Admin Login",fg='white',bg='brown',font=("Courier 20 bold italic"),bd=4,relief=RAISED,command=lambda:login(window))
 Admin_login.pack(side=RIGHT,padx=10,ipadx=5)
