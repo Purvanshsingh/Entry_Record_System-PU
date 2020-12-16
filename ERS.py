@@ -6,6 +6,7 @@ from excel_export import *
 from tkinter import messagebox
 from tkinter import *
 import datetime
+import re
 from openpyxl import load_workbook
 def submit_entry(entry,e):
     global Person,Serial_number
@@ -14,7 +15,7 @@ def submit_entry(entry,e):
     print(entry)
     print(Person.get())
     if str(Person.get())=='OTHERS':
-        print("if")
+        print("Others")
         Serial_number+=1
         time = datetime.datetime.now()
         data = (entry, time.strftime("%I:%M:%S %p"))
@@ -22,34 +23,23 @@ def submit_entry(entry,e):
         create_excel_sheet(data)
         listbox.insert(0,listboxdata)
     else:
-        college=Get_College(entry.upper())
-        print(college)
+        collage_pattern = r"\d{4}(PU|pu)[a-z|A-Z]{7}\d{5}"
         try:
-            conn=sqlite3.connect(college+'.db')
-            print("Connection establised")
-        except Exception as e:
-            messagebox.showerror("Warning","Invalid Registration No.")
-        else:
-            Year=year(entry)
-            try:
-                cursor=conn.execute("SELECT registration_number from "+Year)
-            except Exception as e:
-                print(e)
-                messagebox.showerror("Warning","Invalid Registration No.")
+            check_vaild = re.match(collage_pattern, entry)
+            print("here 2")
+            if check_vaild is not None:
+                    Serial_number += 1
+                    time = datetime.datetime.now()
+                    data = (entry, time.strftime("%I:%M:%S %p"))
+                    listboxdata = (Serial_number, entry, time.strftime("%I:%M:%S %p"))
+                    create_excel_sheet(data)
+                    listbox.insert(0, listboxdata)
             else:
-                for i in cursor:
-                    if i[0]==entry.upper():
-                        print("FOUND")
-                        Serial_number += 1
-                        time=datetime.datetime.now()
-                        data = (i[0], time.strftime("%I:%M:%S %p"))
-                        listboxdata=(Serial_number, i[0], time.strftime("%I:%M:%S %p"))
-                        create_excel_sheet(data)
-                        listbox.insert(0,listboxdata)
-                        break
-                else:
-                    print("NOT FOUND")
-                    messagebox.showerror("Warning","Invalid Registration No.")
+                raise Exception
+
+        except Exception as e:
+            print("NOT FOUND")
+            messagebox.showerror("Warning","Invalid Registration No.")
 def Get_College(data):
     college=data[:4]
     if 'PIET' in college:
