@@ -140,7 +140,7 @@ enter_here=Label(entry_label,text="ENTER YOUR REGISTRATION NO:",fg='white',bg='b
 v=StringVar()
 Person=StringVar()
 #Students and Others
-Students=Radiobutton(entry_label,text='STUDENTS',variable=Person,value='STUDENTS',bd=3,relief=RAISED)
+Students=Radiobutton(entry_label,text='PU STUDENTS',variable=Person,value='STUDENTS',bd=3,relief=RAISED)
 OTHER=Radiobutton(entry_label,text='OTHERS',variable=Person,value='OTHERS',bd=3,relief=RAISED)
 Person.set('STUDENTS')
 Entry=Entry(entry_label,font=('Times', 20, 'bold'),textvariable=v)
