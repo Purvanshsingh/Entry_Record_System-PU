@@ -18,8 +18,8 @@ def submit_entry(entry,e):
         print("Others")
         Serial_number+=1
         time = datetime.datetime.now()
-        data = (entry, time.strftime("%I:%M:%S %p"))
-        listboxdata=(Serial_number,entry, time.strftime("%I:%M:%S %p"))
+        data = (entry, time.strftime("%I:%M:%S %p"), str(Person.get()))
+        listboxdata=(Serial_number,entry, time.strftime("%I:%M:%S %p"), str(Person.get()))
         create_excel_sheet(data)
         listbox.insert(0,listboxdata)
     else:
@@ -30,8 +30,8 @@ def submit_entry(entry,e):
             if check_vaild is not None:
                     Serial_number += 1
                     time = datetime.datetime.now()
-                    data = (entry, time.strftime("%I:%M:%S %p"))
-                    listboxdata = (Serial_number, entry, time.strftime("%I:%M:%S %p"))
+                    data = (entry, time.strftime("%I:%M:%S %p"),str(Person.get()))
+                    listboxdata = (Serial_number, entry, time.strftime("%I:%M:%S %p"),str(Person.get()))
                     create_excel_sheet(data)
                     listbox.insert(0, listboxdata)
             else:
