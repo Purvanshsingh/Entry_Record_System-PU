@@ -15,6 +15,7 @@ def create_excel_sheet(data):
         sheet = workbook.active
         sheet['A1'] = "REGISTRATION NO"
         sheet['B1'] = "TIME"
+        sheet['C1'] = "DESIGNATION"
 
     sheet.append(data)
     workbook.save(filename=file_location)
