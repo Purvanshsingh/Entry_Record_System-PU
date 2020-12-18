@@ -1,12 +1,11 @@
-import sqlite3
-import threading
-import time
+from threading import Thread
+from time import strftime, ctime, sleep
 from Admin_login import *
 from excel_export import *
 from tkinter import messagebox
-from tkinter import *
-import datetime
-import re
+from tkinter import StringVar,Entry,Tk,Label,Frame,Button,Radiobutton,RAISED
+from datetime import datetime
+from re import match
 from openpyxl import load_workbook
 def submit_entry(entry,e):
     global Person,Serial_number
@@ -17,21 +16,21 @@ def submit_entry(entry,e):
     if str(Person.get())=='OTHERS':
         print("Others")
         Serial_number+=1
-        time = datetime.datetime.now()
-        data = (entry, time.strftime("%I:%M:%S %p"), str(Person.get()))
-        listboxdata=(Serial_number,entry, time.strftime("%I:%M:%S %p"), str(Person.get()))
+        time = datetime.now()
+        data = (entry, strftime("%I:%M:%S %p"), str(Person.get()))
+        listboxdata=(Serial_number,entry, strftime("%I:%M:%S %p"), str(Person.get()))
         create_excel_sheet(data)
         listbox.insert(0,listboxdata)
     else:
         collage_pattern = r"\d{4}(PU|pu)[a-z|A-Z]{7}\d{5}"
         try:
-            check_vaild = re.match(collage_pattern, entry)
+            check_vaild = match(collage_pattern, entry)
             print("here 2")
             if check_vaild is not None:
                     Serial_number += 1
-                    time = datetime.datetime.now()
-                    data = (entry, time.strftime("%I:%M:%S %p"),str(Person.get()))
-                    listboxdata = (Serial_number, entry, time.strftime("%I:%M:%S %p"),str(Person.get()))
+                    time = datetime.now()
+                    data = (entry, strftime("%I:%M:%S %p"),str(Person.get()))
+                    listboxdata = (Serial_number, entry, strftime("%I:%M:%S %p"),str(Person.get()))
                     create_excel_sheet(data)
                     listbox.insert(0, listboxdata)
             else:
@@ -40,41 +39,15 @@ def submit_entry(entry,e):
         except Exception as e:
             print("NOT FOUND")
             messagebox.showerror("Warning","Invalid Registration No.")
-def Get_College(data):
-    college=data[:4]
-    if 'PIET' in college:
-        return 'PIET'
-    elif 'PGI' in college:
-        return 'PGI'
-    else:
-        return
 def func(event):
     global v,Entry
     submit_entry(v.get(), Entry)
-def year(data):
-
-    x = data[:-5]
-    y = x[-2:]
-    print(y)
-    try:
-        year = 20 - int(y)
-    except ValueError:
-        return -999999
-    else:
-        if year == 1:
-            return 'FIRSTYEAR'
-        elif year == 2:
-            return 'SECONDYEAR'
-        elif year == 3:
-            return 'THIRDYEAR'
-        elif year == 4:
-            return 'FOURTHYEAR'
 #clock function
 def Time():
     while True:
-        clock_label['text']=time.ctime()
-        time.sleep(1)
-        if time.strftime("%H:%M:%S")=="09:30:00" or time.strftime("%H:%M:%S")=="12:00:00" or time.strftime("%H:%M:%S")=="14:30:00":
+        clock_label['text']= ctime()
+        sleep(1)
+        if strftime("%H:%M:%S")=="09:30:00" or strftime("%H:%M:%S")=="12:00:00" or strftime("%H:%M:%S")=="14:30:00":
             print("Time verified")
             file=Get_Yesterday_File()
             if file:
@@ -118,7 +91,7 @@ clock=Frame(label)
 clock_label=Label(clock,bg='black',fg='red',padx=10,pady=10,font='Courier')
 clock_label.pack()
 clock.pack(pady=2)
-time_thread=threading.Thread(target=Time,daemon=True)
+time_thread= Thread(target=Time,daemon=True)
 time_thread.start()
 
 #Entry box
