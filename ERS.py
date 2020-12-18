@@ -21,6 +21,7 @@ def submit_entry(entry,e):
         listboxdata=(Serial_number,entry, strftime("%I:%M:%S %p"), str(Person.get()))
         create_excel_sheet(data)
         listbox.insert(0,listboxdata)
+        Person.set("STUDENTS")
     else:
         collage_pattern = r"\d{4}(PU|pu)[a-z|A-Z]{7}\d{5}"
         try:
@@ -39,6 +40,7 @@ def submit_entry(entry,e):
         except Exception as e:
             print("NOT FOUND")
             messagebox.showerror("Warning","Invalid Registration No.")
+
 def func(event):
     global v,Entry
     submit_entry(v.get(), Entry)
@@ -121,8 +123,8 @@ enter_here.grid(row=0,padx=5,pady=35,ipadx=20,ipady=20,columnspan=3)
 entry_label.pack(expand=YES,fill=BOTH)
 entry_frame.pack(expand=YES,fill=Y,pady=10)
 #Admin Login Button
-Admin_login=Button(label,text="Admin Login",fg='white',bg='brown',font=("Courier 20 bold italic"),bd=4,relief=RAISED,command=lambda:login(window))
-Admin_login.pack(side=RIGHT,padx=10,ipadx=5)
+#Admin_login=Button(label,text="Admin Login",fg='white',bg='brown',font=("Courier 20 bold italic"),bd=4,relief=RAISED,command=lambda:login(window))
+#Admin_login.pack(side=RIGHT,padx=10,ipadx=5)
 #Developed by
 Developed_Label=Label(label,text='Developed By: PURVANSH SINGH (PIET18CS112)',fg='white',bg='black',bd=5,relief=RAISED,font='systemfixed 11')
 Developed_Label.pack(side=LEFT,ipadx=5,ipady=5)
