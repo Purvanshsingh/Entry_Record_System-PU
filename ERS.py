@@ -1,6 +1,5 @@
 from threading import Thread
 from time import strftime, ctime, sleep
-from Admin_login import *
 from excel_export import *
 from tkinter import messagebox
 from tkinter import StringVar,Entry,Tk,Label,Frame,Button,Radiobutton,RAISED
@@ -122,9 +121,6 @@ Entry.grid(row=2,padx=10,pady=10,columnspan=3,ipadx=5)
 enter_here.grid(row=0,padx=5,pady=35,ipadx=20,ipady=20,columnspan=3)
 entry_label.pack(expand=YES,fill=BOTH)
 entry_frame.pack(expand=YES,fill=Y,pady=10)
-#Admin Login Button
-#Admin_login=Button(label,text="Admin Login",fg='white',bg='brown',font=("Courier 20 bold italic"),bd=4,relief=RAISED,command=lambda:login(window))
-#Admin_login.pack(side=RIGHT,padx=10,ipadx=5)
 #Developed by
 Developed_Label=Label(label,text='Developed By: PURVANSH SINGH (PIET18CS112)',fg='white',bg='black',bd=5,relief=RAISED,font='systemfixed 11')
 Developed_Label.pack(side=LEFT,ipadx=5,ipady=5)
