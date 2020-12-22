@@ -4,6 +4,8 @@ Entry Record System PU is a library entry record system designed on Tkinter, Pyt
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/) 
 
+![](https://github.com/Purvanshsingh/Entry_Record_System-PU/blob/master/picture/ERS_ss.PNG)
+
 Project can be downloaded from : https://purvanshsingh.github.io/Entry_Record_System-PU/index.html
 
 ## Installation
