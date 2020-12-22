@@ -11,10 +11,7 @@ def submit_entry(entry,e):
     global Person,Serial_number
     #Entry Clear
     e.delete(0,END)
-    print(entry)
-    print(Person.get())
     if str(Person.get())=='OTHERS':
-        print("Others")
         Serial_number+=1
         time = datetime.now()
         data = (entry, strftime("%I:%M:%S %p"), str(Person.get()))
@@ -26,7 +23,6 @@ def submit_entry(entry,e):
         collage_pattern = r"\d{4}(PU|pu)[a-z|A-Z]{7}\d{5}"
         try:
             check_vaild = match(collage_pattern, entry)
-            print("here 2")
             if check_vaild is not None:
                     Serial_number += 1
                     time = datetime.now()
@@ -38,7 +34,6 @@ def submit_entry(entry,e):
                 raise Exception
 
         except Exception as e:
-            print("NOT FOUND")
             messagebox.showerror("Warning","Invalid Registration No.")
 
 def func(event):
@@ -49,28 +44,6 @@ def Time():
     while True:
         clock_label['text']= ctime()
         sleep(1)
-        if strftime("%H:%M:%S")=="09:30:00" or strftime("%H:%M:%S")=="12:00:00" or strftime("%H:%M:%S")=="14:30:00":
-            print("Time verified")
-            file=Get_Yesterday_File()
-            if file:
-                print("got file")
-                Wb = load_workbook(file)
-                sheet = Wb.active
-                if sheet['C1'].value == None:
-                    try:
-                        Send_Data_To_Drive(file)
-                    except ServerNotFoundError as e:
-                        print(e,"1")
-                        messagebox.showerror("ERROR","PLEASE CHECK YOUR INTERNET CONNECTION")
-                    except Exception as e:
-                        print(e)
-                        messagebox.showerror("ERROR",e)
-                    else:
-                        sheet['C1'] = 'UPDATED'
-                        Wb.save(filename=file)
-                        messagebox.showinfo("SUCCESSFULL","BACKUP DONE")
-                elif sheet['C1'].value == 'UPDATED':
-                    print("Already updated")
 
 def enter(event):
     submit['bg']='green'
