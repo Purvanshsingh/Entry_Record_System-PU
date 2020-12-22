@@ -21,7 +21,7 @@ Download the project file from the above mentioned link and Install it to your s
 * minimum 2 GB Ram (4 GB Recommend)
 ```
 
-### Important files
+## Important files
 
 ```bash
 Entry_Record_System-PU
@@ -30,6 +30,12 @@ Entry_Record_System-PU
 |___Entries ( all the entry records will be stored in this folder )
     |
     |__ 22-Dec-2020.xls ( Sample file )    
+```
+
+## Usage
+
+```bash
+Click on ERS.exe to run the application     
 ```
 
 ## Developed by
