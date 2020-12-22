@@ -2,10 +2,11 @@ from threading import Thread
 from time import strftime, ctime, sleep
 from excel_export import *
 from tkinter import messagebox
-from tkinter import StringVar,Entry,Tk,Label,Frame,Button,Radiobutton,RAISED
+from tkinter import *
 from datetime import datetime
 from re import match
 from openpyxl import load_workbook
+import os
 def submit_entry(entry,e):
     global Person,Serial_number
     #Entry Clear
@@ -81,7 +82,7 @@ Serial_number=0
 window=Tk()
 window.geometry('1280x1024')
 window.title("ENTRY_RECORD_SYSTEM")
-background_img1=PhotoImage( file='main.png')
+background_img1=PhotoImage(file= os.path.join("picture",'main.png'))
 label=Label(window, image=background_img1)
 
 #Welcome Label
@@ -97,7 +98,7 @@ time_thread.start()
 
 #Entry box
 entry_frame=Frame(label,height=800,width=100,bd=2)
-frame_image=PhotoImage(file='final.png')
+frame_image=PhotoImage(file=os.path.join("picture",'final.png'))
 entry_label=Label(entry_frame,image=frame_image,height=800,width=100,bd=5)
 enter_here=Label(entry_label,text="ENTER YOUR REGISTRATION NO:",fg='white',bg='black',bd=5,relief=RAISED,font='Courier')
 v=StringVar()

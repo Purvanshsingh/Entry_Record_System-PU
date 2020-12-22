@@ -26,12 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2395de7a-c94a-4c4b-93f5-b542140c5bf3" name="Default Changelist" comment="Build fix image path.">
-      <change beforePath="$PROJECT_DIR$/Dec-15-2020.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Feb-23-2020.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Feb-24-2020.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/May-23-2020.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PIET.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/excel_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/excel_export.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ERS.py" beforeDir="false" afterPath="$PROJECT_DIR$/ERS.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +79,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ERS" />
         <item itemvalue="Python.ERS" />
       </list>
     </recent_temporary>
