@@ -55,7 +55,7 @@ Serial_number=0
 window=Tk()
 window.geometry('1280x1024')
 window.title("ENTRY_RECORD_SYSTEM")
-background_img1=PhotoImage(file= os.path.join("picture",'main.png'))
+background_img1=PhotoImage(file= os.path.abspath("picture\\main.png"))
 label=Label(window, image=background_img1)
 
 #Welcome Label
@@ -71,7 +71,7 @@ time_thread.start()
 
 #Entry box
 entry_frame=Frame(label,height=800,width=100,bd=2)
-frame_image=PhotoImage(file=os.path.join("picture",'final.png'))
+frame_image=PhotoImage(file=os.path.abspath("picture\\final.png"))
 entry_label=Label(entry_frame,image=frame_image,height=800,width=100,bd=5)
 enter_here=Label(entry_label,text="ENTER YOUR REGISTRATION NO:",fg='white',bg='black',bd=5,relief=RAISED,font='Courier')
 v=StringVar()

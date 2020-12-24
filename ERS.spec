@@ -3,10 +3,10 @@
 block_cipher = None
 
 
-a = Analysis(['ERS.py'],
-             pathex=['F:\\MY_PYTHON\\ENTRY_RECORD_SYSTEM V-2.4\\Entry_Record_System-PU'],
+a = Analysis(['D:/Entry_Record_System-PU/ERS.py'],
+             pathex=['D:\\Entry_Record_System-PU'],
              binaries=[],
-             datas=[],
+             datas=[('D:/Entry_Record_System-PU/excel_export.py', '.'), ('D:/Entry_Record_System-PU/picture', 'picture/')],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
@@ -30,4 +30,4 @@ exe = EXE(pyz,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=True , icon='logo.ico')
+          console=False , icon='D:\\Entry_Record_System-PU\\logo.ico')

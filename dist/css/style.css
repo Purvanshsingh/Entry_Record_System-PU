@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.top{
+    color: aliceblue;
+
+}
+.firstdiv{
+    color: aliceblue;
+    font-family: 'Lengar', cursive;
+    margin-top: 100px;
+    text-align: left;
+}
+.para{
+    color: aliceblue;
+    margin-top: 100px;
+    text-align: left;
+}
+
+img{
+    margin-top: 17vh;
+}
+
+.butt{
+    margin-top: 9vh;
+    
+}
+
+.ft{
+    margin-top: 70px;
+}
